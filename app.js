@@ -1,10 +1,9 @@
+window.addEventListener('load', function() {
 (() => {
   const React = window.React;
   const ReactDOM = window.ReactDOM;
   const Recharts = window.Recharts;
   const XLSX = window.XLSX;
-  const { useState, useEffect, useCallback } = React;
-  const { LineChart, Line, XAxis, YAxis, Tooltip, ResponsiveContainer, CartesianGrid } = Recharts;
   const WORKOUTS = [
     {
       id: "push-a",
@@ -280,3 +279,4 @@
   }
   ReactDOM.createRoot(document.getElementById("root")).render(/* @__PURE__ */ React.createElement(App, null));
 })();
+});

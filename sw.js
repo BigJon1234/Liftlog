@@ -1,21 +1,19 @@
-const CACHE = "liftlog-v2";
+const CACHE = "liftlog-v3";
 const ASSETS = [
   "./index.html",
   "./app.js",
   "./manifest.json",
   "./icon-192.png",
   "./icon-512.png",
-  "https://unpkg.com/react@18/umd/react.production.min.js",
-  "https://unpkg.com/react-dom@18/umd/react-dom.production.min.js",
-  "https://unpkg.com/recharts@2.12.7/umd/Recharts.js",
-  "https://cdn.sheetjs.com/xlsx-0.20.3/package/dist/xlsx.full.min.js"
+  "https://cdn.jsdelivr.net/npm/react@18/umd/react.production.min.js",
+  "https://cdn.jsdelivr.net/npm/react-dom@18/umd/react-dom.production.min.js",
+  "https://cdn.jsdelivr.net/npm/recharts@2.12.7/umd/Recharts.js",
+  "https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"
 ];
 
 self.addEventListener("install", e => {
   e.waitUntil(
-    caches.open(CACHE).then(c => {
-      return Promise.allSettled(ASSETS.map(url => c.add(url)));
-    })
+    caches.open(CACHE).then(c => Promise.allSettled(ASSETS.map(url => c.add(url))))
   );
   self.skipWaiting();
 });
